@@ -1,0 +1,12 @@
+# Run the whole app with ONE command:   docker compose up --build
+# Then open http://localhost:8080
+services:
+  web:
+    build:
+      context: .
+      args:
+        APP_VERSION: compose-local
+    image: task-tracker:local
+    ports:
+      - "8080:80"   # "your laptop port : container port"
+    restart: unless-stopped
